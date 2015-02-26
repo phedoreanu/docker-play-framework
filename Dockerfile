@@ -1,7 +1,7 @@
 # Base image
 FROM library/java
 
-WORKDIR {{work_dir}}
+WORKDIR /opt
 
 # Update packages
 RUN apt-get update -y && apt-get upgrade -y
@@ -10,8 +10,7 @@ RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install -y zip apt-utils
 
 # Add Play.zip & unzip
-RUN curl -s -O http://downloads.typesafe.com/{{play_exec}}/{{play_version}}/{{play}}.zip; unzip -qq {{play}}
+RUN curl -s -O http://downloads.typesafe.com/play/2.1.3/play-2.1.3.zip; unzip -qq play-2.1.3
 
 # Add play to PATH
-ENV PATH $PATH:{{work_dir}}/{{play}}
-
+ENV PATH $PATH:/opt/play-2.1.3
