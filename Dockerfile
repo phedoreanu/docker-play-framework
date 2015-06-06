@@ -1,16 +1,16 @@
-# Base image
-FROM library/java
+FROM phedoreanu/archlinux-oracle-jdk
 
-WORKDIR /opt
+MAINTAINER Adrian Fedoreanu <adrian.fedoreanu@gmail.com>
 
-# Update packages
-RUN apt-get update -y && apt-get upgrade -y
+RUN curl -O http://downloads.typesafe.com/typesafe-activator/1.3.4/typesafe-activator-1.3.4.zip
+RUN unzip -qq typesafe-activator-1.3.4 \ 
+	&& rm typesafe-activator-1.3.4.zip \
+	&& chmod a+x /activator-1.3.4/activator
 
-# Install unzip
-RUN apt-get install -y zip apt-utils
+ENV PATH $PATH:/activator-1.3.4
 
-# Add Play.zip & unzip
-RUN curl -s -O http://downloads.typesafe.com/play/2.1.3/play-2.1.3.zip; unzip -qq play-2.1.3
+EXPOSE 9000 8888
+RUN mkdir -p /app
+WORKDIR /app
 
-# Add play to PATH
-ENV PATH $PATH:/opt/play-2.1.3
+CMD ["activator", "run"]
