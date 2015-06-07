@@ -3,7 +3,7 @@
 * [`latest` (Dockerfile)](https://github.com/phedoreanu/play-framework/blob/master/Dockerfile)
 * [`play-2.1.3` (Dockerfile)](https://github.com/phedoreanu/play-framework/blob/play-2.1.3/Dockerfile)
 
-Docker image with:
+####Docker image with
 * OS: latest Archlinux
 * Java: Oracle-jdk-8u45
 * Activator: 1.3.4
