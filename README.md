@@ -6,7 +6,7 @@
 ####Docker image with
 * OS: latest Archlinux
 * Java: Oracle-jdk-8u45
-* Activator: 1.3.4
+* Activator: 1.3.5
 * Play version: 2.4.0 (damiya)
 
 ```
